@@ -34,7 +34,7 @@ func getBooksLink(source []byte) ([]string, error) {
 	}
 
 	links := []string{}
-	doc.Find(".bwbookitem").Each(func(i int, s *goquery.Selection) {
+	doc.Find(".bookitem").Each(func(i int, s *goquery.Selection) {
 		links = append(links, s.Find("a").AttrOr("href", ""))
 	})
 	return links, nil
