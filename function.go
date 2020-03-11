@@ -61,6 +61,9 @@ func getBook(url string, ch chan string) {
 func getVol(title string) int {
 	re := regexp.MustCompile(`\d+`)
 	m := re.FindAll([]byte(title), -1)
+	if len(m) == 0 {
+		return 0
+	}
 	v, _ := strconv.Atoi(string(m[0]))
 	return v
 }
